@@ -22,4 +22,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Init Schema
-        run: mysql -u root -h 127.0.0.1 neo_shardmap < ./init.sql
+        run: mysql -u root -h 127.0.0.1 test_db < ./init.sql
