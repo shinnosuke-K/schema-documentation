@@ -58,4 +58,6 @@ jobs:
           title: "Update generated documentation"
           body: "This PR updates the generated documentation."
           commit-message: "Update generated documentation"
+          base: ${{ github.base_ref }}
           branch: "update-generated-docs"
+          
