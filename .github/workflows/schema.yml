@@ -24,3 +24,14 @@ jobs:
 
       - name: Init Schema
         run: mysql -u root -h 127.0.0.1 test_db < ./init.sql
+
+      - name: Download and install tbls
+        run: |
+          curl -sL https://raw.githubusercontent.com/k1LoW/tbls/main/use > /tmp/use-tbls.tmp
+          source /tmp/use-tbls.tmp
+
+      - name: Run tbls
+        env:
+          SCHEMA: test_db
+          DATABASE: test_db
+        run: tbls doc
