@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
+      repository-projects: write
     services:
       mysql:
         image: mysql:5.7
