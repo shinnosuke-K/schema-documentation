@@ -15,8 +15,11 @@ jobs:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3 -v ${{ github.workspace }}/init.sql:/docker-entrypoint-initdb.d/init.sql
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Init Schema
+        run: mysql -u root -h 127.0.0.1 neo_shardmap < ./init.sql
