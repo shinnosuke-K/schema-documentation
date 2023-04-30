@@ -22,7 +22,7 @@ jobs:
       - name: Checkout base branch
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.base_ref }}
+          ref: develop
 
       - name: Init Schema
         run: mysql -u root -h 127.0.0.1 test_db < ./init.sql
@@ -58,6 +58,7 @@ jobs:
           title: "Update generated documentation"
           body: "This PR updates the generated documentation."
           commit-message: "Update generated documentation"
-          base: ${{ github.base_ref }}
+          base: develop
           branch: "update-generated-docs"
+          delete-branch: true
           
