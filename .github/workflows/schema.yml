@@ -7,10 +7,6 @@ on:
 jobs:
   create-schema-document:
     runs-on: ubuntu-latest
-    permissions:
-        contents: write
-        issues: write
-        pull-requests: write
     services:
       mysql:
         image: mysql:5.7
