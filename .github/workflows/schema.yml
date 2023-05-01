@@ -38,7 +38,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update generated documentation"
-          body: "This PR updates the generated documentation."
+          body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
           commit-message: "update generated documentation"
           base: feat/add_github_actions
           branch: feat/update-generated-docs
