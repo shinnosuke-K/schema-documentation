@@ -43,4 +43,3 @@ jobs:
           base: feat/add_github_actions
           branch: "update-generated-docs"
           delete-branch: true
-          
