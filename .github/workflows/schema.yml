@@ -39,7 +39,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update generated documentation"
           body: "This PR updates the generated documentation."
-          commit-message: "Update generated documentation"
+          commit-message: "update generated documentation"
           base: feat/add_github_actions
-          branch: "update-generated-docs"
+          branch: feat/update-generated-docs
+          branch-suffix: short-commit-hash
+          reviewers: ${{ github.actor }}
+          author: github-actions[bot]@users.noreply.github.com
           delete-branch: true
