@@ -4,7 +4,7 @@ on:
   push:
     branch:
       - 'develop'
-      - 'feat/add_column'
+      - 'feat/add_test_run'
     # paths:
         # - "init.sql"
 
@@ -40,6 +40,7 @@ jobs:
       
       - name: test run
         run: |
+          echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ github.event.number }}
           echo "Merged PR title: ${{ github.event.pull_request.title }}"
           echo "Merged PR number: ${{ github.event.pull_request.number }}"
           echo "Merged PR author: ${{ github.event.pull_request.user.login }}"
@@ -51,7 +52,7 @@ jobs:
           title: "Update generated documentation"
           body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
           commit-message: "update generated documentation"
-          base: feat/add_column
+          base: feat/add_test_run
           branch: feat/update-generated-docs
           reviewers: ${{ github.actor }}
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
