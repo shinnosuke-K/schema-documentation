@@ -38,7 +38,7 @@ jobs:
           DATABASE: test_db
         run: tbls doc --force
       
-      - name:
+      - name: test run
         run: |
           echo "Merged PR title: ${{ github.event.pull_request.title }}"
           echo "Merged PR number: ${{ github.event.pull_request.number }}"
