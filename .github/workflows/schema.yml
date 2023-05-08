@@ -2,15 +2,12 @@ name: Create Schema Document
 
 on:
   push:
+    branch:
+      - 'develop'
+      - 'feat/add_column'
     paths:
         - "init.sql"
 
-  pull_request:
-    branches-ignore:
-      - 'main'
-      - 'master'
-      - 'staging'
-      - 'develop'
 
 jobs:
   create-schema-document:
@@ -40,6 +37,12 @@ jobs:
           SCHEMA: test_db
           DATABASE: test_db
         run: tbls doc --force
+      
+      - name:
+        run: |
+          echo "Merged PR title: ${{ github.event.pull_request.title }}"
+          echo "Merged PR number: ${{ github.event.pull_request.number }}"
+          echo "Merged PR author: ${{ github.event.pull_request.user.login }}"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
