@@ -48,7 +48,7 @@ jobs:
           title: "Update generated documentation"
           body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
           commit-message: "update generated documentation"
-          base: develop
+          base: feat/add_column
           branch: feat/update-generated-docs
           reviewers: ${{ github.actor }}
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
