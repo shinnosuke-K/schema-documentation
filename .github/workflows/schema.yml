@@ -2,7 +2,15 @@ name: Create Schema Document
 
 on:
   push:
-    
+    paths:
+        - "init.sql"
+
+  pull_request:
+    branches-ignore:
+      - 'main'
+      - 'master'
+      - 'staging'
+      - 'develop'
 
 jobs:
   create-schema-document:
@@ -40,9 +48,8 @@ jobs:
           title: "Update generated documentation"
           body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
           commit-message: "update generated documentation"
-          base: feat/add_github_actions
+          base: develop
           branch: feat/update-generated-docs
-          branch-suffix: short-commit-hash
           reviewers: ${{ github.actor }}
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           delete-branch: true
