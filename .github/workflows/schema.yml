@@ -5,8 +5,8 @@ on:
     branch:
       - 'develop'
       - 'feat/add_column'
-    paths:
-        - "init.sql"
+    # paths:
+        # - "init.sql"
 
 
 jobs:
