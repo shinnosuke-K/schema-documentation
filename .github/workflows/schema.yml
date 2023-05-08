@@ -41,9 +41,9 @@ jobs:
       - name: test run
         run: |
           echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ github.event.number }}
-          echo "Merged PR title: ${{ github.event.pull_request.title }}"
-          echo "Merged PR number: ${{ github.event.pull_request.number }}"
-          echo "Merged PR author: ${{ github.event.pull_request.user.login }}"
+          echo "Merged PR title: ${{ github }}"
+          echo "Merged PR number: ${{ github.event }}"
+          echo "Merged PR author: ${{ github.event.pull_request }}"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
