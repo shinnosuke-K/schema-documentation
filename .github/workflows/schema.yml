@@ -39,7 +39,7 @@ jobs:
         env:
           SCHEMA: test_db
           DATABASE: test_db
-        run: tbls doc
+        run: tbls doc --force
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
