@@ -1,0 +1,55 @@
+name: Create Schema Document
+
+on:
+  push:
+    paths:
+        - "init.sql"
+
+  pull_request:
+    branches-ignore:
+      - 'main'
+      - 'master'
+      - 'staging'
+      - 'develop'
+
+jobs:
+  create-schema-document:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_DATABASE: test_db
+          MYSQL_ALLOW_EMPTY_PASSWORD: true
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: Checkout base branch
+        uses: actions/checkout@v3
+
+      - name: Init Schema
+        run: mysql -u root -h 127.0.0.1 test_db < ./init.sql
+
+      - name: Setup tbls
+        uses: k1low/setup-tbls@v1
+
+      - name: Run tbls
+        env:
+          SCHEMA: test_db
+          DATABASE: test_db
+        run: tbls doc
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: "Update generated documentation"
+          body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
+          commit-message: "update generated documentation"
+          base: develop
+          branch: feat/update-generated-docs
+          reviewers: ${{ github.actor }}
+          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+          delete-branch: true
