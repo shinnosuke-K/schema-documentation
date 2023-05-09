@@ -4,7 +4,7 @@ on:
   push:
     branch:
       - 'develop'
-      - 'feat/add_test_run'
+      - 'feat/add_github_cli'
     # paths:
         # - "init.sql"
 
@@ -37,13 +37,11 @@ jobs:
           SCHEMA: test_db
           DATABASE: test_db
         run: tbls doc --force
-      
-      - name: test run
-        run: |
-          echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ github.event.number }}
-          echo "Merged PR title: ${{ github }}"
-          echo "Merged PR number: ${{ github.event }}"
-          echo "Merged PR author: ${{ github.event.pull_request }}"
+
+      - name: GitHub CLI
+        run: gh pr list --search "sha:${{ github.sha }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -52,7 +50,7 @@ jobs:
           title: "Update generated documentation"
           body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
           commit-message: "update generated documentation"
-          base: feat/add_test_run
+          base: feat/add_github_cli
           branch: feat/update-generated-docs
           reviewers: ${{ github.actor }}
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
