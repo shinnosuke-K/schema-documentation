@@ -43,11 +43,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: GitHub CLI
-        id: store-pr-url
+      - name: Load PR Infomation
+        id: load_pr
         run: |
           pr_url=$(gh pr list --search "sha:${{ github.sha }}" --json "url" -q ".[0].url")
-          echo "url=${pr_url}" >> $GITHUB_OUTPUT
+          pr_title=$(gh pr list --search "sha:${{ github.sha }}" --json "title" -q ".[0].title")
+          pr_author=$(gh pr list --search "sha:${{ github.sha }}" --json "author" -q ".[0].author")
+          echo "pr_url=${pr_url}" >> $GITHUB_OUTPUT
+          echo "pr_title=${pr_title}" >> $GITHUB_OUTPUT
+          echo "pr_author=${pr_author}" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -56,10 +60,12 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update generated documentation"
-          body: "This PR updates the generated documentation by ${{ steps.store-pr-url.outputs.url }}"
+          body: |
+            [${{ steps.load_pr.outputs.pr_title }}](${{ steps.load_pr.outputs.pr_url }}) でスキーマが更新されたので
+            スキーマのドキュメントも更新します
           commit-message: "update generated documentation"
           base: feat/add_github_cli
           branch: feat/update-generated-docs
-          reviewers: ${{ github.actor }}
+          reviewers: ${{ steps.load_pr.outputs.pr_author }}
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           delete-branch: true
