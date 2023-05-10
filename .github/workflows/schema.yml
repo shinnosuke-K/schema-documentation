@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'develop'
-    # paths:
-        # - "schema.sql"
+    paths:
+        - "schema.sql"
 
 
 jobs:
@@ -36,15 +36,6 @@ jobs:
           SCHEMA: test_db
           DATABASE: test_db
         run: tbls doc --force
-      
-      - name: test GitHub CLI
-        run: |
-          gh pr list --state merged --search "sha:${{ github.sha }}" --json id,number,title,state,url,createdAt,updatedAt,closedAt,mergedAt,headRefName,baseRefName,author,labels
-          gh pr list --state merged --search "sha:${{ github.sha }}" --json "url" -q ".[0].url"
-          gh pr list --state merged --search "sha:${{ github.sha }}" --json "title" -q ".[0].title"
-          gh pr list --state merged --search "sha:${{ github.sha }}" --json "author" -q ".[0].author"
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Load PR Infomation
         id: load_pr
