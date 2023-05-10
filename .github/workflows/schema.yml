@@ -2,11 +2,10 @@ name: Create Schema Document
 
 on:
   push:
-    branch:
+    branches:
       - 'develop'
-      - 'feat/add_test_run'
-    # paths:
-        # - "init.sql"
+    paths:
+        - "schema.sql"
 
 
 jobs:
@@ -27,7 +26,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Init Schema
-        run: mysql -u root -h 127.0.0.1 test_db < ./init.sql
+        run: mysql -u root -h 127.0.0.1 test_db < ./schema.sql
 
       - name: Setup tbls
         uses: k1low/setup-tbls@v1
@@ -37,23 +36,29 @@ jobs:
           SCHEMA: test_db
           DATABASE: test_db
         run: tbls doc --force
-      
-      - name: test run
+
+      - name: Load PR Infomation
+        id: load_pr
         run: |
-          echo ${{ github.server_url }}/${{ github.repository }}/pull/${{ github.event.number }}
-          echo "Merged PR title: ${{ github }}"
-          echo "Merged PR number: ${{ github.event }}"
-          echo "Merged PR author: ${{ github.event.pull_request }}"
+          pr_url=$(gh pr list --search "sha:${{ github.sha }}" --json "url" -q ".[0].url")
+          pr_title=$(gh pr list --search "sha:${{ github.sha }}" --json "title" -q ".[0].title")
+          pr_author=$(gh pr list --search "sha:${{ github.sha }}" --json "author" -q ".[0].author")
+          echo "pr_url=${pr_url}" >> $GITHUB_OUTPUT
+          echo "pr_title=${pr_title}" >> $GITHUB_OUTPUT
+          echo "pr_author=${pr_author}" >> $GITHUB_OUTPUT
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update generated documentation"
-          body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
+          body: |
+            [${{ steps.load_pr.outputs.pr_title }}](${{ steps.load_pr.outputs.pr_url }}) でスキーマが更新されたのでスキーマのドキュメントも更新します
           commit-message: "update generated documentation"
-          base: feat/add_test_run
+          base: develop
           branch: feat/update-generated-docs
-          reviewers: ${{ github.actor }}
+          reviewers: ${{ steps.load_pr.outputs.pr_author }}
           author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
           delete-branch: true
