@@ -47,7 +47,7 @@ jobs:
         id: store-pr-url
         run: |
           pr_url=$(gh pr list --search "sha:${{ github.sha }}" --json "url" -q ".[0].url")
-          echo "pr_url=pr_url" >> $GITHUB_OUTPUT
+          echo "url=pr_url" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -56,7 +56,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update generated documentation"
-          body: "This PR updates the generated documentation by ${{ steps.store-pr-url }}"
+          body: "This PR updates the generated documentation by ${{ steps.store-pr-url.outputs.url }}"
           commit-message: "update generated documentation"
           base: feat/add_github_cli
           branch: feat/update-generated-docs
