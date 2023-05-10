@@ -39,19 +39,19 @@ jobs:
       
       - name: test GitHub CLI
         run: |
-          gh pr list --search "sha:${{ github.sha }}" --json id,number,title,state,url,createdAt,updatedAt,closedAt,mergedAt,headRefName,baseRefName,author,labels
-          gh pr list --search "sha:${{ github.sha }}" --json "url" -q ".[0].url"
-          gh pr list --search "sha:${{ github.sha }}" --json "title" -q ".[0].title"
-          gh pr list --search "sha:${{ github.sha }}" --json "author" -q ".[0].author"
+          gh pr list --state merged --search "sha:${{ github.sha }}" --json id,number,title,state,url,createdAt,updatedAt,closedAt,mergedAt,headRefName,baseRefName,author,labels
+          gh pr list --state merged --search "sha:${{ github.sha }}" --json "url" -q ".[0].url"
+          gh pr list --state merged --search "sha:${{ github.sha }}" --json "title" -q ".[0].title"
+          gh pr list --state merged --search "sha:${{ github.sha }}" --json "author" -q ".[0].author"
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Load PR Infomation
         id: load_pr
         run: |
-          pr_url=$(gh pr list --search "sha:${{ github.sha }}" --json "url" -q ".[0].url")
-          pr_title=$(gh pr list --search "sha:${{ github.sha }}" --json "title" -q ".[0].title")
-          pr_author=$(gh pr list --search "sha:${{ github.sha }}" --json "author" -q ".[0].author")
+          pr_url=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "url" -q ".[0].url")
+          pr_title=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "title" -q ".[0].title")
+          pr_author=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "author" -q ".[0].author")
           echo "pr_url=${pr_url}" >> $GITHUB_OUTPUT
           echo "pr_title=${pr_title}" >> $GITHUB_OUTPUT
           echo "pr_author=${pr_author}" >> $GITHUB_OUTPUT
