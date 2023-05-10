@@ -39,7 +39,7 @@ jobs:
         run: tbls doc --force
 
       - name: GitHub CLI
-        run: gh pr list --search "sha:${{ github.sha }}"
+        run: gh pr list --search "sha:${{ github.sha }}" --json "htmlUrl"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -48,7 +48,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update generated documentation"
-          body: "This PR updates the generated documentation. ${{ github.event.pull_request.number }}"
+          body: "This PR updates the generated documentation."
           commit-message: "update generated documentation"
           base: feat/add_github_cli
           branch: feat/update-generated-docs
