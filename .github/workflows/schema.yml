@@ -1,4 +1,4 @@
-name: Create Schema Document
+name: Update Schema Document
 
 on:
   push:
@@ -7,9 +7,8 @@ on:
     paths:
         - "schema.sql"
 
-
 jobs:
-  create-schema-document:
+  update-schema-document:
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -33,7 +32,6 @@ jobs:
 
       - name: Run tbls
         env:
-          SCHEMA: test_db
           DATABASE: test_db
         run: tbls doc --force
 

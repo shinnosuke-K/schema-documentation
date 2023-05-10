@@ -1,4 +1,4 @@
-docPath: doc/${SCHEMA} # ドキュメントの出力先
+docPath: doc/${DATABASE} # ドキュメントの出力先
 dsn: mysql://root:@localhost:3306/${DATABASE} # 対象のDBのDSN
 detectVirtualRelations: # カラム名からリレーションを探してくれる
   enabled: true
