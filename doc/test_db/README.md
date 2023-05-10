@@ -4,7 +4,8 @@
 
 | Name | Columns | Comment | Type |
 | ---- | ------- | ------- | ---- |
-| [user](user.md) | 7 |  | BASE TABLE |
+| [school](school.md) | 5 |  | BASE TABLE |
+| [user](user.md) | 8 |  | BASE TABLE |
 
 ## Relations
 
