@@ -8,6 +8,7 @@
 ```sql
 CREATE TABLE `user` (
   `id` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `school_id` varchar(20) COLLATE utf8mb4_bin NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(300) COLLATE utf8mb4_bin NOT NULL,
   `authority` varchar(300) COLLATE utf8mb4_bin NOT NULL,
@@ -25,6 +26,7 @@ CREATE TABLE `user` (
 | Name | Type | Default | Nullable | Children | Parents | Comment |
 | ---- | ---- | ------- | -------- | -------- | ------- | ------- |
 | id | varchar(20) |  | false |  |  |  |
+| school_id | varchar(20) |  | false |  | [school](school.md) |  |
 | name | varchar(255) |  | false |  |  |  |
 | email | varchar(300) |  | false |  |  |  |
 | authority | varchar(300) |  | false |  |  |  |
