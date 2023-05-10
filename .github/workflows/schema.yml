@@ -43,6 +43,9 @@ jobs:
           gh pr list --search "sha:${{ github.sha }}" --json "url" -q ".[0].url"
           gh pr list --search "sha:${{ github.sha }}" --json "title" -q ".[0].title"
           gh pr list --search "sha:${{ github.sha }}" --json "author" -q ".[0].author"
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Load PR Infomation
         id: load_pr
         run: |
