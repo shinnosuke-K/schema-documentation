@@ -38,11 +38,6 @@ jobs:
           DATABASE: test_db
         run: tbls doc --force
 
-      - name: GitHub CLI
-        run: gh pr list --search "sha:${{ github.sha }}" --json "url" -q ".[0].url"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Load PR Infomation
         id: load_pr
         run: |
@@ -61,8 +56,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           title: "Update generated documentation"
           body: |
-            [${{ steps.load_pr.outputs.pr_title }}](${{ steps.load_pr.outputs.pr_url }}) でスキーマが更新されたので
-            スキーマのドキュメントも更新します
+            [${{ steps.load_pr.outputs.pr_title }}](${{ steps.load_pr.outputs.pr_url }}) でスキーマが更新されたのでスキーマのドキュメントも更新します
           commit-message: "update generated documentation"
           base: feat/add_github_cli
           branch: feat/update-generated-docs
