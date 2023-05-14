@@ -5,6 +5,7 @@
 | Name | Columns | Comment | Type |
 | ---- | ------- | ------- | ---- |
 | [school](school.md) | 5 |  | BASE TABLE |
+| [teacher](teacher.md) | 7 |  | BASE TABLE |
 | [user](user.md) | 8 |  | BASE TABLE |
 
 ## Relations
