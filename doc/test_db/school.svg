@@ -37,42 +37,39 @@
 <!-- teacher -->
 <g id="node2" class="node">
 <title>teacher</title>
-<polygon fill="#efefef" stroke="transparent" points="43,-595.5 43,-630.5 289,-630.5 289,-595.5 43,-595.5"/>
-<polygon fill="none" stroke="#000000" points="43,-595.5 43,-630.5 289,-630.5 289,-595.5 43,-595.5"/>
-<text text-anchor="start" x="72.2064" y="-608.3" font-family="Arial Bold" font-size="18.00" fill="#000000">teacher</text>
-<text text-anchor="start" x="132.2256" y="-608.3" font-family="Arial" font-size="14.00" fill="#000000">    </text>
-<text text-anchor="start" x="166.4304" y="-608.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
-<polygon fill="none" stroke="#000000" points="43,-565.5 43,-595.5 289,-595.5 289,-565.5 43,-565.5"/>
-<text text-anchor="start" x="50" y="-576.9" font-family="Arial" font-size="14.00" fill="#000000">id    </text>
-<text text-anchor="start" x="95.094" y="-576.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
-<polygon fill="none" stroke="#000000" points="43,-535.5 43,-565.5 289,-565.5 289,-535.5 43,-535.5"/>
-<text text-anchor="start" x="50" y="-546.9" font-family="Arial" font-size="14.00" fill="#000000">school_id    </text>
-<text text-anchor="start" x="143.331" y="-546.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
-<polygon fill="none" stroke="#000000" points="43,-505.5 43,-535.5 289,-535.5 289,-505.5 43,-505.5"/>
-<text text-anchor="start" x="50" y="-516.9" font-family="Arial" font-size="14.00" fill="#000000">curriculum_id    </text>
-<text text-anchor="start" x="167.4194" y="-516.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
-<polygon fill="none" stroke="#000000" points="43,-475.5 43,-505.5 289,-505.5 289,-475.5 43,-475.5"/>
-<text text-anchor="start" x="50" y="-486.9" font-family="Arial" font-size="14.00" fill="#000000">name    </text>
-<text text-anchor="start" x="119.2132" y="-486.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(255)]</text>
-<polygon fill="none" stroke="#000000" points="43,-445.5 43,-475.5 289,-475.5 289,-445.5 43,-445.5"/>
-<text text-anchor="start" x="50" y="-456.9" font-family="Arial" font-size="14.00" fill="#000000">email    </text>
-<text text-anchor="start" x="117.6438" y="-456.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
-<polygon fill="none" stroke="#000000" points="43,-415.5 43,-445.5 289,-445.5 289,-415.5 43,-415.5"/>
-<text text-anchor="start" x="50" y="-426.9" font-family="Arial" font-size="14.00" fill="#000000">created_at    </text>
-<text text-anchor="start" x="150.3422" y="-426.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
-<polygon fill="none" stroke="#000000" points="43,-385.5 43,-415.5 289,-415.5 289,-385.5 43,-385.5"/>
-<text text-anchor="start" x="50" y="-396.9" font-family="Arial" font-size="14.00" fill="#000000">updated_at    </text>
-<text text-anchor="start" x="154.2468" y="-396.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
-<polygon fill="none" stroke="#000000" points="43,-355.5 43,-385.5 289,-385.5 289,-355.5 43,-355.5"/>
-<text text-anchor="start" x="49.7013" y="-366.9" font-family="Arial" font-size="14.00" fill="#000000">deleted_flag    </text>
-<text text-anchor="start" x="160.1613" y="-366.9" font-family="Arial" font-size="14.00" fill="#666666">[tinyint(3) unsigned]</text>
+<polygon fill="#efefef" stroke="transparent" points="43,-580.5 43,-615.5 289,-615.5 289,-580.5 43,-580.5"/>
+<polygon fill="none" stroke="#000000" points="43,-580.5 43,-615.5 289,-615.5 289,-580.5 43,-580.5"/>
+<text text-anchor="start" x="72.2064" y="-593.3" font-family="Arial Bold" font-size="18.00" fill="#000000">teacher</text>
+<text text-anchor="start" x="132.2256" y="-593.3" font-family="Arial" font-size="14.00" fill="#000000">    </text>
+<text text-anchor="start" x="166.4304" y="-593.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
+<polygon fill="none" stroke="#000000" points="43,-550.5 43,-580.5 289,-580.5 289,-550.5 43,-550.5"/>
+<text text-anchor="start" x="50" y="-561.9" font-family="Arial" font-size="14.00" fill="#000000">id    </text>
+<text text-anchor="start" x="95.094" y="-561.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
+<polygon fill="none" stroke="#000000" points="43,-520.5 43,-550.5 289,-550.5 289,-520.5 43,-520.5"/>
+<text text-anchor="start" x="50" y="-531.9" font-family="Arial" font-size="14.00" fill="#000000">school_id    </text>
+<text text-anchor="start" x="143.331" y="-531.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
+<polygon fill="none" stroke="#000000" points="43,-490.5 43,-520.5 289,-520.5 289,-490.5 43,-490.5"/>
+<text text-anchor="start" x="50" y="-501.9" font-family="Arial" font-size="14.00" fill="#000000">name    </text>
+<text text-anchor="start" x="119.2132" y="-501.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(255)]</text>
+<polygon fill="none" stroke="#000000" points="43,-460.5 43,-490.5 289,-490.5 289,-460.5 43,-460.5"/>
+<text text-anchor="start" x="50" y="-471.9" font-family="Arial" font-size="14.00" fill="#000000">email    </text>
+<text text-anchor="start" x="117.6438" y="-471.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
+<polygon fill="none" stroke="#000000" points="43,-430.5 43,-460.5 289,-460.5 289,-430.5 43,-430.5"/>
+<text text-anchor="start" x="50" y="-441.9" font-family="Arial" font-size="14.00" fill="#000000">created_at    </text>
+<text text-anchor="start" x="150.3422" y="-441.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
+<polygon fill="none" stroke="#000000" points="43,-400.5 43,-430.5 289,-430.5 289,-400.5 43,-400.5"/>
+<text text-anchor="start" x="50" y="-411.9" font-family="Arial" font-size="14.00" fill="#000000">updated_at    </text>
+<text text-anchor="start" x="154.2468" y="-411.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
+<polygon fill="none" stroke="#000000" points="43,-370.5 43,-400.5 289,-400.5 289,-370.5 43,-370.5"/>
+<text text-anchor="start" x="49.7013" y="-381.9" font-family="Arial" font-size="14.00" fill="#000000">deleted_flag    </text>
+<text text-anchor="start" x="160.1613" y="-381.9" font-family="Arial" font-size="14.00" fill="#666666">[tinyint(3) unsigned]</text>
 </g>
 <!-- teacher&#45;&gt;school -->
 <g id="edge1" class="edge">
 <title>teacher:school_id&#45;&gt;school:id</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M298.971,-547.7814C337.9232,-524.332 312.5122,-356.0666 289,-313 274.8217,-287.0301 247.1783,-302.9699 233,-277 212.4482,-239.3559 190.1111,-180.5 233,-180.5"/>
-<polygon fill="#000000" stroke="#000000" points="298.6478,-547.8694 287.8162,-546.1585 293.8239,-549.1847 289,-550.5 289,-550.5 289,-550.5 293.8239,-549.1847 290.1838,-554.8415 298.6478,-547.8694 298.6478,-547.8694"/>
-<text text-anchor="start" x="296.268" y="-560.5" font-family="Arial" font-size="10.00" fill="#000000">Detected Relation</text>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M299.1434,-534.9459C376.9562,-525.9385 324.8155,-409.06 289,-328 275.395,-297.2082 246.605,-307.7918 233,-277 215.6666,-237.7698 190.1111,-180.5 233,-180.5"/>
+<polygon fill="#000000" stroke="#000000" points="298.9851,-534.9545 288.7545,-531.0067 293.9926,-535.2272 289,-535.5 289,-535.5 289,-535.5 293.9926,-535.2272 289.2455,-539.9933 298.9851,-534.9545 298.9851,-534.9545"/>
+<text text-anchor="start" x="296.268" y="-545.5" font-family="Arial" font-size="10.00" fill="#000000">Detected Relation</text>
 </g>
 <!-- user -->
 <g id="node3" class="node">
@@ -112,7 +109,7 @@
 <title>user:school_id&#45;&gt;school:id</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M383.029,-547.7814C344.0768,-524.332 369.4878,-356.0666 393,-313 407.1783,-287.0301 434.8217,-302.9699 449,-277 469.5518,-239.3559 491.8889,-180.5 449,-180.5"/>
 <polygon fill="#000000" stroke="#000000" points="383.3522,-547.8694 391.8162,-554.8415 388.1761,-549.1847 393,-550.5 393,-550.5 393,-550.5 388.1761,-549.1847 394.1838,-546.1585 383.3522,-547.8694 383.3522,-547.8694"/>
-<text text-anchor="start" x="307.268" y="-534.5" font-family="Arial" font-size="10.00" fill="#000000">Detected Relation</text>
+<text text-anchor="start" x="400.268" y="-560.5" font-family="Arial" font-size="10.00" fill="#000000">Detected Relation</text>
 </g>
 </g>
 </svg>
