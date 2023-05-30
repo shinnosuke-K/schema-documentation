@@ -3,11 +3,8 @@ name: Update Schema Document
 on:
   pull_request:
     types: [synchronize,opened,reopened]
-    branches-ignore:
-      - 'master'
-      - 'main'
-      - 'staging'
-      - 'develop'
+    branches:
+      - develop
     paths:
       - "schema.sql"
 
@@ -27,6 +24,8 @@ jobs:
     steps:
       - name: Checkout base branch
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Init Schema
         run: mysql -u root -h 127.0.0.1 test_db < ./schema.sql
@@ -57,7 +56,7 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         id: get-sha
         run: |
-          echo "name=sha::$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       
       - name: Comment PR
         if: steps.diff.outputs.changed == 'true'
