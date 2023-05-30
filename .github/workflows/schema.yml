@@ -3,11 +3,8 @@ name: Update Schema Document
 on:
   pull_request:
     types: [synchronize,opened,reopened]
-    branches-ignore:
-      - 'master'
-      - 'main'
-      - 'staging'
-      - 'develop'
+    branches:
+      - develop
     paths:
       - "schema.sql"
 
@@ -25,8 +22,10 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - name: Checkout base branch
+      - name: Checkout head branch
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Init Schema
         run: mysql -u root -h 127.0.0.1 test_db < ./schema.sql
@@ -42,7 +41,7 @@ jobs:
       - name: Check for file changes
         id: diff
         run: |
-          git diff --exit-code --quiet || echo "::set-output name=changed::true"
+          git diff --exit-code --quiet || echo "changed=true" >> $GITHUB_OUTPUT
       
       - name: Commit and Push
         if: steps.diff.outputs.changed == 'true'
@@ -57,12 +56,13 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         id: get-sha
         run: |
-          echo "name=sha::$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       
       - name: Comment PR
         if: steps.diff.outputs.changed == 'true'
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} --body "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada:"
+          comment_body=$(echo -e "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada: \n修正を行う場合は事前に\`git pull origin ${{ github.head_ref }}\`を実行してください (pushでコケます)")
+          echo "$comment_body" | gh pr comment ${{ github.event.pull_request.number }} --body-file -
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
