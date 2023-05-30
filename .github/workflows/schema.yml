@@ -2,7 +2,10 @@ name: Update Schema Document
 
 on:
   push:
-    branches:
+    branches-ignore:
+      - 'master'
+      - 'main'
+      - 'staging'
       - 'develop'
     paths:
         - "schema.sql"
@@ -34,29 +37,37 @@ jobs:
         env:
           DATABASE: test_db
         run: tbls doc --force
-
-      - name: Load PR Infomation
-        id: load_pr
+      
+      - name: Commit and Push
         run: |
-          pr_url=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "url" -q ".[0].url")
-          pr_title=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "title" -q ".[0].title")
-          pr_author=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "author" -q ".[0].author.login")
-          echo "pr_url=${pr_url}" >> $GITHUB_OUTPUT
-          echo "pr_title=${pr_title}" >> $GITHUB_OUTPUT
-          echo "pr_author=${pr_author}" >> $GITHUB_OUTPUT
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git add --update
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "update schema document"
+          git push
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          title: "Update generated documentation"
-          body: |
-            [${{ steps.load_pr.outputs.pr_title }}](${{ steps.load_pr.outputs.pr_url }}) でスキーマが更新されたのでスキーマのドキュメントも更新します
-          commit-message: "update generated documentation"
-          base: develop
-          branch: feat/update-generated-docs
-          reviewers: ${{ steps.load_pr.outputs.pr_author }}
-          author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
-          delete-branch: true
+      # - name: Load PR Infomation
+      #   id: load_pr
+      #   run: |
+      #     pr_url=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "url" -q ".[0].url")
+      #     pr_title=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "title" -q ".[0].title")
+      #     pr_author=$(gh pr list --state merged --search "sha:${{ github.sha }}" --json "author" -q ".[0].author.login")
+      #     echo "pr_url=${pr_url}" >> $GITHUB_OUTPUT
+      #     echo "pr_title=${pr_title}" >> $GITHUB_OUTPUT
+      #     echo "pr_author=${pr_author}" >> $GITHUB_OUTPUT
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v5
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     title: "Update generated documentation"
+      #     body: |
+      #       [${{ steps.load_pr.outputs.pr_title }}](${{ steps.load_pr.outputs.pr_url }}) でスキーマが更新されたのでスキーマのドキュメントも更新します
+      #     commit-message: "update generated documentation"
+      #     base: develop
+      #     branch: feat/update-generated-docs
+      #     reviewers: ${{ steps.load_pr.outputs.pr_author }}
+      #     author: github-actions[bot] <github-actions[bot]@users.noreply.github.com>
+      #     delete-branch: true
