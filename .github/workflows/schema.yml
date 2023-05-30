@@ -38,7 +38,13 @@ jobs:
           DATABASE: test_db
         run: tbls doc --force
       
+      - name: Check for file changes
+        id: diff
+        run: |
+          git diff --exit-code --quiet || echo "::set-output name=changed::true"
+      
       - name: Commit and Push
+        if: steps.diff.outputs.changed == 'true'
         run: |
           git add --update
           git config user.name github-actions
