@@ -61,7 +61,7 @@ jobs:
       - name: Comment PR
         if: steps.diff.outputs.changed == 'true'
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} --body "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada:"
+          gh pr comment ${{ github.event.pull_request.number }} --body "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada: \n 修正を行う場合は事前に`git pull`してください(pushでコケます)"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
