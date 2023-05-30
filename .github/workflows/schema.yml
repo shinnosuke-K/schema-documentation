@@ -58,7 +58,7 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         id: get-sha
         run: |
-          echo "name=sha::$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
       
       - name: Comment PR
         if: steps.diff.outputs.changed == 'true'
