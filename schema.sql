@@ -40,3 +40,4 @@ CREATE TABLE `curriculum` (
   `deleted_flag` tinyint(3) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
