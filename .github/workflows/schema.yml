@@ -22,7 +22,7 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - name: Checkout base branch
+      - name: Checkout head branch
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
@@ -41,7 +41,7 @@ jobs:
       - name: Check for file changes
         id: diff
         run: |
-          git diff --exit-code --quiet || echo "::set-output name=changed::true"
+          git diff --exit-code --quiet || echo "changed=true" >> $GITHUB_OUTPUT
       
       - name: Commit and Push
         if: steps.diff.outputs.changed == 'true'
@@ -61,7 +61,8 @@ jobs:
       - name: Comment PR
         if: steps.diff.outputs.changed == 'true'
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} --body "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada: \n 修正を行う場合は事前に`git pull`してください(pushでコケます)"
+          comment_body=$(echo -e "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada: \n修正を行う場合は事前に`git pull origin ${{ github.head_ref }}`を実行してください(pushでコケます)")
+          echo "$comment_body" | gh pr comment ${{ github.event.pull_request.number }} --bodyfile -
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
