@@ -15,7 +15,6 @@ CREATE TABLE `user` (
 CREATE TABLE `teacher` (
   `id` varchar(20) COLLATE utf8mb4_bin NOT NULL,
   `school_id` varchar(20) COLLATE utf8mb4_bin NOT NULL,
-  `curriculum_id` varchar(20) COLLATE utf8mb4_bin NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(300) COLLATE utf8mb4_bin NOT NULL,
   `created_at` datetime NOT NULL,
