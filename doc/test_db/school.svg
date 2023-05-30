@@ -34,14 +34,14 @@
 <text text-anchor="start" x="320.0042" y="-56.9" font-family="Arial" font-size="14.00" fill="#666666">[tinyint(3) unsigned]</text>
 <polygon fill="none" stroke="#000000" stroke-width="3" points="231.5,-44.5 231.5,-232.5 450.5,-232.5 450.5,-44.5 231.5,-44.5"/>
 </g>
-<!-- teacher -->
+<!-- student -->
 <g id="node2" class="node">
-<title>teacher</title>
+<title>student</title>
 <polygon fill="#efefef" stroke="transparent" points="43,-595.5 43,-630.5 289,-630.5 289,-595.5 43,-595.5"/>
 <polygon fill="none" stroke="#000000" points="43,-595.5 43,-630.5 289,-630.5 289,-595.5 43,-595.5"/>
-<text text-anchor="start" x="72.2064" y="-608.3" font-family="Arial Bold" font-size="18.00" fill="#000000">teacher</text>
-<text text-anchor="start" x="132.2256" y="-608.3" font-family="Arial" font-size="14.00" fill="#000000">    </text>
-<text text-anchor="start" x="166.4304" y="-608.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
+<text text-anchor="start" x="72.7014" y="-608.3" font-family="Arial Bold" font-size="18.00" fill="#000000">student</text>
+<text text-anchor="start" x="131.7306" y="-608.3" font-family="Arial" font-size="14.00" fill="#000000">    </text>
+<text text-anchor="start" x="165.9354" y="-608.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
 <polygon fill="none" stroke="#000000" points="43,-565.5 43,-595.5 289,-595.5 289,-565.5 43,-565.5"/>
 <text text-anchor="start" x="50" y="-576.9" font-family="Arial" font-size="14.00" fill="#000000">id    </text>
 <text text-anchor="start" x="95.094" y="-576.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
@@ -49,14 +49,14 @@
 <text text-anchor="start" x="50" y="-546.9" font-family="Arial" font-size="14.00" fill="#000000">school_id    </text>
 <text text-anchor="start" x="143.331" y="-546.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
 <polygon fill="none" stroke="#000000" points="43,-505.5 43,-535.5 289,-535.5 289,-505.5 43,-505.5"/>
-<text text-anchor="start" x="50" y="-516.9" font-family="Arial" font-size="14.00" fill="#000000">curriculum_id    </text>
-<text text-anchor="start" x="167.4194" y="-516.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
+<text text-anchor="start" x="50" y="-516.9" font-family="Arial" font-size="14.00" fill="#000000">name    </text>
+<text text-anchor="start" x="119.2132" y="-516.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(255)]</text>
 <polygon fill="none" stroke="#000000" points="43,-475.5 43,-505.5 289,-505.5 289,-475.5 43,-475.5"/>
-<text text-anchor="start" x="50" y="-486.9" font-family="Arial" font-size="14.00" fill="#000000">name    </text>
-<text text-anchor="start" x="119.2132" y="-486.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(255)]</text>
+<text text-anchor="start" x="50" y="-486.9" font-family="Arial" font-size="14.00" fill="#000000">email    </text>
+<text text-anchor="start" x="117.6438" y="-486.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
 <polygon fill="none" stroke="#000000" points="43,-445.5 43,-475.5 289,-475.5 289,-445.5 43,-445.5"/>
-<text text-anchor="start" x="50" y="-456.9" font-family="Arial" font-size="14.00" fill="#000000">email    </text>
-<text text-anchor="start" x="117.6438" y="-456.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
+<text text-anchor="start" x="50" y="-456.9" font-family="Arial" font-size="14.00" fill="#000000">authority    </text>
+<text text-anchor="start" x="137.8836" y="-456.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
 <polygon fill="none" stroke="#000000" points="43,-415.5 43,-445.5 289,-445.5 289,-415.5 43,-415.5"/>
 <text text-anchor="start" x="50" y="-426.9" font-family="Arial" font-size="14.00" fill="#000000">created_at    </text>
 <text text-anchor="start" x="150.3422" y="-426.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
@@ -67,21 +67,21 @@
 <text text-anchor="start" x="49.7013" y="-366.9" font-family="Arial" font-size="14.00" fill="#000000">deleted_flag    </text>
 <text text-anchor="start" x="160.1613" y="-366.9" font-family="Arial" font-size="14.00" fill="#666666">[tinyint(3) unsigned]</text>
 </g>
-<!-- teacher&#45;&gt;school -->
+<!-- student&#45;&gt;school -->
 <g id="edge1" class="edge">
-<title>teacher:school_id&#45;&gt;school:id</title>
+<title>student:school_id&#45;&gt;school:id</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M298.971,-547.7814C337.9232,-524.332 312.5122,-356.0666 289,-313 274.8217,-287.0301 247.1783,-302.9699 233,-277 212.4482,-239.3559 190.1111,-180.5 233,-180.5"/>
 <polygon fill="#000000" stroke="#000000" points="298.6478,-547.8694 287.8162,-546.1585 293.8239,-549.1847 289,-550.5 289,-550.5 289,-550.5 293.8239,-549.1847 290.1838,-554.8415 298.6478,-547.8694 298.6478,-547.8694"/>
 <text text-anchor="start" x="296.268" y="-560.5" font-family="Arial" font-size="10.00" fill="#000000">Detected Relation</text>
 </g>
-<!-- user -->
+<!-- teacher -->
 <g id="node3" class="node">
-<title>user</title>
+<title>teacher</title>
 <polygon fill="#efefef" stroke="transparent" points="393,-595.5 393,-630.5 639,-630.5 639,-595.5 393,-595.5"/>
 <polygon fill="none" stroke="#000000" points="393,-595.5 393,-630.5 639,-630.5 639,-595.5 393,-595.5"/>
-<text text-anchor="start" x="434.7137" y="-608.3" font-family="Arial Bold" font-size="18.00" fill="#000000">user</text>
-<text text-anchor="start" x="469.7183" y="-608.3" font-family="Arial" font-size="14.00" fill="#000000">    </text>
-<text text-anchor="start" x="503.9231" y="-608.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
+<text text-anchor="start" x="422.2064" y="-608.3" font-family="Arial Bold" font-size="18.00" fill="#000000">teacher</text>
+<text text-anchor="start" x="482.2256" y="-608.3" font-family="Arial" font-size="14.00" fill="#000000">    </text>
+<text text-anchor="start" x="516.4304" y="-608.3" font-family="Arial" font-size="14.00" fill="#666666">[BASE TABLE]</text>
 <polygon fill="none" stroke="#000000" points="393,-565.5 393,-595.5 639,-595.5 639,-565.5 393,-565.5"/>
 <text text-anchor="start" x="400" y="-576.9" font-family="Arial" font-size="14.00" fill="#000000">id    </text>
 <text text-anchor="start" x="445.094" y="-576.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
@@ -89,14 +89,14 @@
 <text text-anchor="start" x="400" y="-546.9" font-family="Arial" font-size="14.00" fill="#000000">school_id    </text>
 <text text-anchor="start" x="493.331" y="-546.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
 <polygon fill="none" stroke="#000000" points="393,-505.5 393,-535.5 639,-535.5 639,-505.5 393,-505.5"/>
-<text text-anchor="start" x="400" y="-516.9" font-family="Arial" font-size="14.00" fill="#000000">name    </text>
-<text text-anchor="start" x="469.2132" y="-516.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(255)]</text>
+<text text-anchor="start" x="400" y="-516.9" font-family="Arial" font-size="14.00" fill="#000000">curriculum_id    </text>
+<text text-anchor="start" x="517.4194" y="-516.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(20)]</text>
 <polygon fill="none" stroke="#000000" points="393,-475.5 393,-505.5 639,-505.5 639,-475.5 393,-475.5"/>
-<text text-anchor="start" x="400" y="-486.9" font-family="Arial" font-size="14.00" fill="#000000">email    </text>
-<text text-anchor="start" x="467.6438" y="-486.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
+<text text-anchor="start" x="400" y="-486.9" font-family="Arial" font-size="14.00" fill="#000000">name    </text>
+<text text-anchor="start" x="469.2132" y="-486.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(255)]</text>
 <polygon fill="none" stroke="#000000" points="393,-445.5 393,-475.5 639,-475.5 639,-445.5 393,-445.5"/>
-<text text-anchor="start" x="400" y="-456.9" font-family="Arial" font-size="14.00" fill="#000000">authority    </text>
-<text text-anchor="start" x="487.8836" y="-456.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
+<text text-anchor="start" x="400" y="-456.9" font-family="Arial" font-size="14.00" fill="#000000">email    </text>
+<text text-anchor="start" x="467.6438" y="-456.9" font-family="Arial" font-size="14.00" fill="#666666">[varchar(300)]</text>
 <polygon fill="none" stroke="#000000" points="393,-415.5 393,-445.5 639,-445.5 639,-415.5 393,-415.5"/>
 <text text-anchor="start" x="400" y="-426.9" font-family="Arial" font-size="14.00" fill="#000000">created_at    </text>
 <text text-anchor="start" x="500.3422" y="-426.9" font-family="Arial" font-size="14.00" fill="#666666">[datetime]</text>
@@ -107,9 +107,9 @@
 <text text-anchor="start" x="399.7013" y="-366.9" font-family="Arial" font-size="14.00" fill="#000000">deleted_flag    </text>
 <text text-anchor="start" x="510.1613" y="-366.9" font-family="Arial" font-size="14.00" fill="#666666">[tinyint(3) unsigned]</text>
 </g>
-<!-- user&#45;&gt;school -->
+<!-- teacher&#45;&gt;school -->
 <g id="edge2" class="edge">
-<title>user:school_id&#45;&gt;school:id</title>
+<title>teacher:school_id&#45;&gt;school:id</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M383.029,-547.7814C344.0768,-524.332 369.4878,-356.0666 393,-313 407.1783,-287.0301 434.8217,-302.9699 449,-277 469.5518,-239.3559 491.8889,-180.5 449,-180.5"/>
 <polygon fill="#000000" stroke="#000000" points="383.3522,-547.8694 391.8162,-554.8415 388.1761,-549.1847 393,-550.5 393,-550.5 393,-550.5 388.1761,-549.1847 394.1838,-546.1585 383.3522,-547.8694 383.3522,-547.8694"/>
 <text text-anchor="start" x="307.268" y="-534.5" font-family="Arial" font-size="10.00" fill="#000000">Detected Relation</text>
