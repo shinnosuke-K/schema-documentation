@@ -62,7 +62,7 @@ jobs:
         if: steps.diff.outputs.changed == 'true'
         run: |
           comment_body=$(echo -e "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada: \n修正を行う場合は事前に`git pull origin ${{ github.head_ref }}`を実行してください(pushでコケます)")
-          echo "$comment_body" | gh pr comment ${{ github.event.pull_request.number }} --bodyfile -
+          echo "$comment_body" | gh pr comment ${{ github.event.pull_request.number }} --body-file -
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
