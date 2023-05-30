@@ -22,7 +22,7 @@ CREATE TABLE `school` (
 
 | Name | Type | Default | Nullable | Children | Parents | Comment |
 | ---- | ---- | ------- | -------- | -------- | ------- | ------- |
-| id | varchar(20) |  | false | [student](student.md) [teacher](teacher.md) |  |  |
+| id | varchar(20) |  | false | [teacher](teacher.md) [user](user.md) |  |  |
 | name | varchar(255) |  | false |  |  |  |
 | created_at | datetime |  | false |  |  |  |
 | updated_at | datetime |  | false |  |  |  |

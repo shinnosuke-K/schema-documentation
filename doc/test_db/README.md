@@ -7,8 +7,8 @@
 | [curriculum](curriculum.md) | 5 |  | BASE TABLE |
 | [regular_test](regular_test.md) | 7 |  | BASE TABLE |
 | [school](school.md) | 5 |  | BASE TABLE |
-| [student](student.md) | 8 |  | BASE TABLE |
 | [teacher](teacher.md) | 8 |  | BASE TABLE |
+| [user](user.md) | 8 |  | BASE TABLE |
 
 ## Relations
 
