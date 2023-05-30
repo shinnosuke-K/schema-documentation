@@ -4,8 +4,9 @@
 
 | Name | Columns | Comment | Type |
 | ---- | ------- | ------- | ---- |
+| [curriculum](curriculum.md) | 5 |  | BASE TABLE |
 | [school](school.md) | 5 |  | BASE TABLE |
-| [teacher](teacher.md) | 7 |  | BASE TABLE |
+| [teacher](teacher.md) | 8 |  | BASE TABLE |
 | [user](user.md) | 8 |  | BASE TABLE |
 
 ## Relations
