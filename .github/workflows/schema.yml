@@ -1,7 +1,7 @@
 name: Update Schema Document
 
 on:
-  push:
+  pull_request:
     branches-ignore:
       - 'master'
       - 'main'
@@ -51,6 +51,19 @@ jobs:
           git config user.email github-actions[bot]@users.noreply.github.com
           git commit -m "update schema document"
           git push
+      
+      - name: Get latest commit SHA
+        if: steps.diff.outputs.changed == 'true'
+        id: get-sha
+        run: |
+          echo "::set-output name=sha::$(git rev-parse HEAD)"
+      
+      - name: Comment PR
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --body "${{ steps.get-sha.outputs.sha }} でスキーマが更新されました :tada:"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Load PR Infomation
       #   id: load_pr
