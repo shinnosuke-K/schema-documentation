@@ -7,7 +7,6 @@ on:
       - 'master'
       - 'main'
       - 'staging'
-      - 'develop'
     paths:
       - "schema.sql"
 
