@@ -2,13 +2,14 @@ name: Update Schema Document
 
 on:
   pull_request:
+    types: [synchronize,opened,reopened]
     branches-ignore:
       - 'master'
       - 'main'
       - 'staging'
       - 'develop'
     paths:
-        - "schema.sql"
+      - "schema.sql"
 
 jobs:
   update-schema-document:
